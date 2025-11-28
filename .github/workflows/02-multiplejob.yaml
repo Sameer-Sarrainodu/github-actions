@@ -1,0 +1,20 @@
+name: multiplejobs
+on: 
+  push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: job1
+        run: echo "this is job1"
+      - name: job2
+        run: echo "this is job2"
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: job3
+        run: echo "this is job3"
+      - name: job4
+        run: echo "this is job4"
