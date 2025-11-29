@@ -8,9 +8,13 @@ jobs:
         if: github.ref == 'refs/heads/feature'
         run: echo "this is feature branch"
 
-      # - name: main branch only
-      #   if: github.ref == 'refs/heads/main'
-      #   run: echo "this is main branch"
+      - name: main branch only
+        if: github.ref == 'refs/heads/main'
+        run: echo "this is main branch"
+
+      - name: force failure
+        run: exit 1
+
       - name: only if previous succeedd
         if: success()
         run: echo "success"
