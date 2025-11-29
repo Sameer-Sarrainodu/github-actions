@@ -27,4 +27,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: which branch currently?
-        run:  echo "Branch: ${{ github.ref_name }}"
+        run: |
+             echo "Branch: ${{ github.ref_name }}"
