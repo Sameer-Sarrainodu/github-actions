@@ -12,8 +12,8 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: echo "this is main branch"
 
-      - name: force failure
-        run: exit 1
+      # - name: force failure
+      #   run: exit 1
 
       - name: only if previous succeedd
         if: success()
