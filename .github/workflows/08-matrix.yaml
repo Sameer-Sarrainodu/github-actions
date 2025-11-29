@@ -1,0 +1,14 @@
+name: using matrix
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14,15]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: node --version
