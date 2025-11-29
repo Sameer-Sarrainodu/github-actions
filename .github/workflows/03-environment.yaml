@@ -1,0 +1,29 @@
+name: envtest
+on: [push]
+env:
+  PROJECT: roboshop
+  REGION: us-east-1
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      COMPONENT: catalogue
+    steps:
+      - name: printing job env
+        run: |
+            echo "$PROJECT"
+            echo "$REGION"
+            echo "$COMPONENT"
+      - name: printing job env and step env
+        env:
+          MESSAGE: "hello its  me step env"
+        run: |
+            echo "$PROJECT"
+            echo "$REGION"
+            echo "$COMPONENT"
+            echo "$MESSAGE"
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: which branch currently?
+        run:  echo "Branch: ${{ github.ref_name }}"
