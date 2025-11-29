@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: feature branch only
-        if: github.ref == "refs/heads/feature"
+        if: github.ref == 'refs/heads/feature'
         run: echo "this is feature branch"
 
       - name: main branch only
