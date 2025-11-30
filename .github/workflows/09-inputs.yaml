@@ -1,0 +1,38 @@
+name: Inputs
+on:
+  workflow_dispatch:
+    inputs:
+      loglevel:
+        description: 'this is log level'
+        required: true
+        default: true
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      print_tags:
+        description: "printtags"
+        required: true
+        type: boolean
+      tags:
+        description: 'testing scenario'
+        requried: true
+        type: string
+      environment:
+        description: "environment"
+        type: environment
+        required: true
+
+jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print the input tag
+        run: echo "the tags are ${{ inputs.tags}}"
+      - name: print the environment
+        run: echo "the tags are ${{ inputs.environment}}"
+      - name: print the input print_tags
+        run: echo "the tags are ${{ inputs.print_tags}}"
+      - name: print the input loglevel
+        run: echo "the tags are ${{ inputs.loglevel}}"
